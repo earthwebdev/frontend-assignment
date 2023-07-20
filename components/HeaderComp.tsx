@@ -1,8 +1,16 @@
 import Link from 'next/link'
-import React from 'react'
+import { useRouter } from 'next/router';
+import React, { useState } from 'react'
 import { BiCart, BiSearch, BiUser } from "react-icons/bi";
 
+
 const HeaderComp = () => {
+    const [query, setQuery] = useState('');
+    const router = useRouter();
+    const searchHandle = (event: any) => {
+        event?.preventDefault();
+        router.push(`/search?query=${query}`);
+    }
   return (
     <>
         <div className='flex flex-row justify-between items-center'>
@@ -18,8 +26,8 @@ const HeaderComp = () => {
                 
                 <div className='search'>
 
-                    <input className='py-[8px] px-4' type='text' placeholder='Search Products' />
-                    <button className='-ms-[20px]' type='button'><BiSearch /></button>
+                    <input onKeyUp={(e:any) => e.key === 'Enter' && searchHandle() } onChange={(e) => setQuery(e.target.value)} className='py-[8px] px-4' type='text' placeholder='Search Products' />
+                    <button onClick={searchHandle} className='-ms-[20px]' type='button'><BiSearch /></button>
                 </div>
             
             
