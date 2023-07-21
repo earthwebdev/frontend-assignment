@@ -12,7 +12,6 @@ export interface Product{
   }
 
   export interface ProductInterface {
-    products: Array<Product>;
-    //products: Array<Product>;
+    products: Array<Product>;    
     data: Array<Product>;
   }

@@ -6,12 +6,15 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { Product } from "@/interface/productInterface";
 import RatingComp from "@/components/RatingComp";
 import BounceLoader from "react-spinners/BounceLoader";
+import { useSelector, useDispatch } from 'react-redux'
+import { addToCart } from "@/store/CartSlice";
 
 const ProductDetailsPage = () => {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   const { id } = router.query;
   console.log(id);
+  const dispatch = useDispatch();
   const getSingleProductDatas = (id: any) => {
     const resp = getDataFromApi("/products/" + id);
     setLoading(false);
@@ -25,7 +28,9 @@ const ProductDetailsPage = () => {
   });
   //console.log(data);
   const btnAddCartHandler = (product: Product) => {
+    dispatch(addToCart(product));
     //console.log(product);
+    router.push('/cart');
   };
   return (
     <RootLayout>
