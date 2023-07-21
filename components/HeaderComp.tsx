@@ -26,7 +26,7 @@ const HeaderComp = () => {
                 
                 <div className='search'>
 
-                    <input onKeyUp={(e:any) => e.key === 'Enter' && searchHandle } onChange={(e) => setQuery(e.target.value)} className='py-[8px] px-4' type='text' placeholder='Search Products' />
+                    <input onKeyUp={(e:any) => e.key === 'Enter' && searchHandle } onChange={(e) => setQuery(e.target.value)} className="py-[8px] px-4" placeholder={'Search Products'} />
                     <button onClick={searchHandle} className='-ms-[20px]' type='button'><BiSearch /></button>
                 </div>
             
