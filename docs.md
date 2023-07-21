@@ -36,3 +36,12 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+### Bonus Points:
+
+- Making use of TypeScript for type safety.
+- Use of Next.js is preferred over react
+- Use of global state management with Redux toolkit, Recoil or any other state management library.
+- Implement a responsive UI to improve user experience on mobile devices.
+- Handle loading and error states during data fetching.
+- Add a shopping cart functionality where users can add products to the cart and view the cart.
