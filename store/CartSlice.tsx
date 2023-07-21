@@ -7,13 +7,13 @@ interface cartCustom extends Product{
 export interface CartState {
     cartItems: Array<cartCustom>;
     cartTotalQuantity: number;
-    cartTotatAmount: number;
+    cartTotalAmount: number;
 }
 
 const initialState: CartState = {
     cartItems: [],
     cartTotalQuantity: 0,
-    cartTotatAmount: 0
+    cartTotalAmount: 0
 }
 
 export const CartSlice = createSlice({

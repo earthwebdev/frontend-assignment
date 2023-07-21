@@ -17,12 +17,15 @@ interface cartCustom extends Product {
 const cart = () => {
   const route = useRouter();
   const products = useSelector((state: any) => state.cart.cartItems);
+  const cartTotalAmount = useSelector((state: any) => state.cart.cartTotalAmount);
+  const cartTotalQuantity = useSelector((state: any) => state.cart.cartTotalQuantity);
   const dispatch = useDispatch();
   console.log(products.length);
   useEffect(() => {
     dispatch(getTotal());
   })
-  let totalAmount = Number(products?.cartTotalAmount + 4.99);
+  let totalAmount = (cartTotalAmount + 4.99).toFixed(2);
+  console.log(cartTotalAmount );
   return (
     <>
       <div className="container mx-auto my-6 h-screen bg-gray-100 pt-20 ">
@@ -144,7 +147,7 @@ const cart = () => {
               <div className="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
                 <div className="mb-2 flex justify-between">
                   <p className="text-gray-700">Subtotal</p>
-                  <p className="text-gray-700">${products.cartTotalAmount}</p>
+                  <p className="text-gray-700">${cartTotalAmount}</p>
                 </div>
                 <div className="flex justify-between">
                   <p className="text-gray-700">Shipping</p>
@@ -154,7 +157,7 @@ const cart = () => {
                 <div className="flex justify-between">
                   <p className="text-lg font-bold">Total</p>
                   <div className="">
-                    <p className="mb-1 text-lg font-bold">${products.cartTotalAmount + 4.99}</p>
+                    <p className="mb-1 text-lg font-bold">${totalAmount}</p>
                     <p className="text-sm text-gray-700">including VAT</p>
                   </div>
                 </div>
